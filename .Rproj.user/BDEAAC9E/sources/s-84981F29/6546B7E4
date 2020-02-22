@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1582349420798.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2682878935",
+    "id" : "6546B7E4",
+    "lastKnownWriteTime" : 1582349457,
+    "last_content_update" : 1582349457492,
+    "path" : "~/Desktop/Quest/Quest Year 4 /Semester 2/Keystone /KEYSTONE /Data/Analysis.1/Clean.Data.An.R",
+    "project_path" : "Clean.Data.An.R",
+    "properties" : {
+        "cursorPosition" : "27,28",
+        "scrollLine" : "12",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
