@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1582348844159.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "127474620",
+    "id" : "86333F5F",
+    "lastKnownWriteTime" : 1582348850,
+    "last_content_update" : 1582348850943,
+    "path" : "~/Desktop/Quest/Quest Year 4 /Semester 2/Keystone /KEYSTONE /Data/Analysis.1/test.R",
+    "project_path" : "test.R",
+    "properties" : {
+        "cursorPosition" : "3,10",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
