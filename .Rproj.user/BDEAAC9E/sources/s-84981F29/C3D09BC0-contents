@@ -1,0 +1,46 @@
+#
+#
+# Will Sherwin <- 02/20/2020
+#
+# R version 3.6.2 (2019-12-12) 
+#
+
+#============================Pathways===========================================
+# The file of the raw data can be accessed with the following code.
+working.dir <- getwd()
+
+#create the folders
+output.folders <- c("1.Raw.Data","2.Clean.Data","3.Analysis","4.Graphs")
+# Make the folders using this loop code 
+for(i in 1:length(output.folders)) 
+  if(file.exists(output.folders[i]) == FALSE) 
+    dir.create(output.folders[i])
+
+
+# Path to 1.Raw.Data folder
+rd.path <- paste(working.dir,"/",output.folders[1], "/", sep="")
+
+# Path to 2.Clean.Data
+cd.path <- paste(working.dir,"/",output.folders[2], "/", sep="")
+
+# Path to 3.Analysis
+an.path <- paste(working.dir,"/",output.folders[3], "/", sep="")
+
+# Path to 4.Graphs
+gr.path <- paste(working.dir,"/",output.folders[4], "/", sep="")
+
+# Now we can save our raw data into the raw data file. 
+write.csv(Bones, paste(rd.path, "Bones.csv"),
+          row.names = FALSE)
+
+Bones <- read.csv("~/Desktop/Quest/Quest Year 4 /Semester 2/Keystone /KEYSTONE /Data/1.Raw.Data/ Bones.csv")
+#=====================Packages needed for this analysis========================
+#install.packages("car")
+#install.packages("MASS")
+#library(car)
+#library(MASS)
+#library(dplyr)
+
+#============================Variables==========================================
+# 
+#
