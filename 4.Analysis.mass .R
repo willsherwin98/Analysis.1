@@ -25,7 +25,7 @@ tapply(Mass,list(Presence,Sex),mean)
 ggplot(An.d, aes(x = Mass)) + geom_density() + facet_wrap(island ~sex)
 
 
-densityPlot(presence~sex, show.bw =FALSE, data=An.d)
+densityPlot(presence~sex, svl, show.bw =FALSE, data=An.d)
 
 #now between sex and and presence 
 ggplot(An.d, aes(x = Mass)) + geom_density() + facet_wrap(presence~sex)
@@ -41,7 +41,9 @@ dev.off() #close pdf
 #==========================Model the Data======================================
 # Now fit a factorial analysis of varience
 model <- aov(Mass~Presence  + Sex * Island)
+
 summary.lm(model)
+
 
 #Try to simplify the model. 
 model.s <-  aov(Mass~Presence+Sex+Island)
@@ -69,7 +71,7 @@ summary.lm(model.5)
 
 #=================Determin which model is has an Effect=========================
 
-AIC.sum.Mass <- AIC(model.1,model.2,model.3,model.4,model.5)
+AIC.sum.Mass <- AIC(model,model.1,model.2,model.3,model.4,model.5)
 #from this we can see that models 1 and 5 have the most effect which makes sense
 #because our data does not show any signs of presence or island having an effect 
 
@@ -119,6 +121,15 @@ cat(sum.LMM.Mass, file= paste(an.path, "LMM.Mass.txt" , sep = ""))
 #Anova of LMM output 
 sum.AN.LM.Mass <- capture.output(Anova(lmm.Mass))
 cat(sum.AN.LM.Mass, file= paste(an.path, "Anova.lm.Mass.txt" , sep = ""))
+
+
+
+
+
+
+
+
+
 
 #======================Plot the linear effect model============================
 

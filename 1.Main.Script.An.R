@@ -115,5 +115,8 @@ write.csv(Bones, paste(rd.path, "Bones.csv"),
 source("2.Clean.Data.An.R")
 source("3.Analysis.SVL.R")
 source("4.Analysis.mass .R")
+source("5.Graphs.An.R")
+
+
 
 

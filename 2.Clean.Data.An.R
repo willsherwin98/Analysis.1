@@ -18,6 +18,11 @@ An.d <- na.omit(A.data)
 View(An.d)
 str(An.d)
 
+# Get rid of Line Cedars island data 
+A.data[A.data=="line.cedars"] <- NA
+An.d <- na.omit(A.data)
+View(An.d)
+
 #Rename the columns to make them more usable and check that it works
 names(An.d)[names(An.d)== "Bones.island"] <- "island"
 names(An.d)[names(An.d)== "Bones.sagrei.present"] <- "presence"

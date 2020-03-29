@@ -69,8 +69,8 @@ summary.lm(model.5)
 
 #=================Determin which model is has an Effect=========================
 
-AIC.sum.SVL <- AIC(model.1,model.2,model.3,model.4,model.5)
-#from this we can see that models 1 and 5 have the most effect which makes sense
+AIC.sum.SVL <- AIC(model,model.1,model.2,model.3,model.4,model.5)
+#from this we can see that model  and model 5 have the most effect which makes sense
 #because our data does not show any signs of presence or island having an effect 
 
 #=================Run a mixed effect model on the data=========================
@@ -98,7 +98,7 @@ qqp(res,"lnorm")
 lmm.SVL <- lmer(svl~presence+sex +(1|island), data = An.d, REML = FALSE)
 
 summary(lmm.SVL)
-#we can see that our random effect is not 0 so it has some sort of effect. 
+0#we can see that our random effect is not 0 so it has some sort of effect. 
 
 #see the significance 
 Anova(lmm.SVL)
@@ -119,6 +119,13 @@ cat(sum.LMM.SVL, file= paste(an.path, "LMM.SVL.txt" , sep = ""))
 #Anova of LMM output 
 sum.AN.LM.SVL <- capture.output(Anova(lmm.SVL))
 cat(sum.AN.LM.SVL, file= paste(an.path, "Anova.lm.SVL.txt" , sep = ""))
+
+
+
+
+
+
+
 
 
 
