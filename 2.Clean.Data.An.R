@@ -1,3 +1,5 @@
+
+
 #                  DATA CLEANING    #
 
 #First, make a data frame including only the relevent colums and check 
