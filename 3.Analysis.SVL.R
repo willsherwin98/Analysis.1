@@ -98,7 +98,7 @@ qqp(res,"lnorm")
 lmm.SVL <- lmer(svl~presence+sex +(1|island), data = An.d, REML = FALSE)
 
 summary(lmm.SVL)
-0#we can see that our random effect is not 0 so it has some sort of effect. 
+#we can see that our random effect is not 0 so it has some sort of effect. 
 
 #see the significance 
 Anova(lmm.SVL)
