@@ -497,31 +497,14 @@ x.lim <- c(0, max(x.islands)+1 )
 y.lim <- c(0, 5)# range of Mass
 cex.text <- 0.7
 
-
-
-
-
-
-
-
-
-
-for(i in 1:length(cat.presence)){
-  # i <- 2
+#for(i in 1:length(cat.presence)){
+  # i <- 1
   
-  d.m1 <- d.m[d.m$Presence == cat.presence[i],]
+ # d.m1 <- d.m[d.m$Presence == cat.presence[i],]
   # now with the presence group i we go and loop through all islands
-  n.islands <- unique(d.m1$Island)
-  
-
   
   
-  
-  
-  
-  
-  
-  
+ # n.islands <- unique(d.m1$Island)
   
   
   
@@ -548,8 +531,10 @@ for(i in 1:length(cat.presence)){
     d.m1 <- d.m[d.m$Presence == cat.presence[i],]
     # now with the presence group i we go and loop through all islands
     n.islands <- unique(d.m1$Island)
+  
+    
     for(j in 1:length(n.islands)){
-       #j <- 5
+       #j <- 1
       # select island j
       d.m.2 <- d.m1[d.m1$Island == n.islands[j],]
   
@@ -562,16 +547,24 @@ for(i in 1:length(cat.presence)){
     
       #x.islands <-  c(seq(1,3,2), seq(5,7, 2))
      ######### Mean male and female for absence####### 
+    x.f <- runif(nrow(d.f), x.islands[islands.tot] + delta.r[2], x.islands[islands.tot] + delta.r[1] )  
+    
+    #points(x.islands[islands.tot] - delta.sex, mean(d.f$Mass), pch = 16, cex =
+              1)
    
-   points(3, mean(d.f$Mass), pch= 16, cex= 1)
+   points(x.f, mean(d.f$Mass), pch= 16, cex= 1)
    
    # means for  males 
    d.f <- d.m.2[d.m.2$Sex == "m",]
    
-   points(5, mean(d.f$Mass), pch= 16, cex= 1)
+ points(x.islands[islands.tot] - delta.sex, mean(d.f$Mass), pch = 16, cex =
+            1)
+   
+   #points(5, mean(d.f$Mass), pch= 16, cex= 1)
    
     
-
+    }
+  }
    ################ mean points for presence ###################################
    
    #d.m1 <- d.m[d.m$Presence =="1",]
