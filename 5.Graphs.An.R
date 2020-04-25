@@ -57,7 +57,7 @@ pdf(file =paste(gr.path, "Final.SVL.pdf", sep = ""), width = 8,
 
 
 # ==================== plot an empty figure space =============================
-plot(NA, xlim = x.lim, ylim = y.lim, ylab = "SVL ", xlab = "", 
+plot(NA, xlim = x.lim, ylim = y.lim, ylab = "Snout Vent Length (mm) ", xlab = "", 
      las =  1, xaxt = "n")
 
 #add text to the x axis 
@@ -176,7 +176,7 @@ pdf(file =paste(gr.path, "Final.Mass.pdf", sep = ""), width = 8,
 
 
 # ==================== plot an empty figure space =============================
-plot(NA, xlim = x.lim, ylim = y.lim, ylab = "Mass", xlab = "", 
+plot(NA, xlim = x.lim, ylim = y.lim, ylab = "Mass (grams)", xlab = "", 
      las =  1, xaxt = "n")
 
 #add text to the x axis 
@@ -259,7 +259,7 @@ y.lim <- c(1, 4)# range of Mass
 
 
 #First make the empty plot 
-plot(NA, xlim = x.lim, ylim = y.lim, ylab = "Mass", xlab = "", 
+plot(NA, xlim = x.lim, ylim = y.lim, ylab = "Mass (g)", xlab = "", 
      las =  1, xaxt = "na")
 
 # text for left of the graph 
@@ -562,7 +562,7 @@ y.lim <- c(40, 60)# range of Mass
 
 
 #First make the empty plot 
-plot(NA, xlim = x.lim, ylim = y.lim, ylab = "SVL", xlab = "", 
+plot(NA, xlim = x.lim, ylim = y.lim, ylab = "SVL (mm)", xlab = "", 
      las =  1, xaxt = "na")
 
 # text for left of the graph 
