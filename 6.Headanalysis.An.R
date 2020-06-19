@@ -2,9 +2,13 @@
 # Will Sherwin 
 # 24/04/2020 
 
-# This is code of a regresssion of head traits compared to size of Anole (SVL)
+#1. This is code of a regresssion of head traits compared to size of Anole (SVL)
 
-#======================== First make the data easy to work with  ===============
+#2. This code correcting for size 
+
+#3. this code is to run a model on the size corrected traits 
+
+# 1. ===================== First make the data easy to work with  ===============
 
 
 # make a data frame including only the relevent colums and check 
@@ -70,7 +74,7 @@ var.names <- colnames(h.d)[d.tr]
 #first select what sex will be looked at 
 for(j in 1:2){
   ###### determin what sex
-  S.1 <- h.d[h.d$sex == sex[j],]
+  S.1 <- h.d[h.d$sex == sex[1],]
   
   
   #next select what island will be looked at with the specified sex 
@@ -79,8 +83,9 @@ for(j in 1:2){
     ####### islands for that sex 
     is.1 <- unique(S.1$island)
     
-    d.h.3 <- S.1[S.1$island == is.1[t],]
+    d.h.3 <- S.1[S.1$island == is.1[1],]
     
+    d.h.3
     
     #Now look at the particular trait for that sex on that island
     for(i in 1:length(d.tr)){
@@ -102,6 +107,115 @@ for(j in 1:2){
 }
 
 # End loop 
+
+
+#determin what sex
+S.1 <- h.d[h.d$sex == sex[2],]
+
+####### islands for that sex 
+
+d.h.3 <- S.1[S.1$island == is.1[11],]
+
+model.i <- lm(d.h.3[,d.tr[7]] ~ d.h.3$svl)
+
+summary(model.i)
+
+
+model.1 <-  lm(h.d$Jaw.length ~ h.d$svl)
+summary(model.1)
+
+model.2 <-  lm(h.d$Width ~ h.d$svl)
+summary(model.2)
+model.3 <-  lm(h.d$Height ~ h.d$svl)
+summary(model.3)
+model.4 <-  lm(h.d$Outlever ~ h.d$svl)
+summary(model.4)
+model.5 <-  lm(h.d$Open.inlever ~ h.d$svl)
+summary(model.5)
+model.6 <-  lm(h.d$Close.inlever ~ h.d$svl)
+summary(model.6)
+model.7 <-  lm(h.d$Head.length ~ h.d$svl)
+summary(model.7)
+
+
+
+#================= 2. Size Corecting ===========================================
+
+
+is.1 <- (S.1$island) #list of islands 
+d.tr <- c(5,6,7,8,9,10,11) # here is the position of each trait 
+
+Length  <-  h.d$svl #the trait we are size correcting against. 
+
+is.land <-  is.1 #the random factor in the linear mixed model. This is the section
+dataframe.to.use <-  h.d #the data
+Traits.correct  <-  h.d[d.tr] #the columns in dataframe.to.use that are to be size corrected
+
+f.sizecorrect <- function(Length , Traits.correct , dataframe.to.use, is.land) {
+  #Calculate overall mean standard length (Mean.L)
+  Mean.L <- mean(Length , na.rm = TRUE) 
+  #Call individual standard length
+  L0 <- Length 
+  
+  
+  #calculate slope with  log10 values. 
+  # treat each section as a group for random factor
+  b.vector.lmm <- vector()
+  i <- 5
+  for (i in Traits.correct ) {
+    abcd <- (dataframe.to.use[i])
+    
+  # b = slope 
+    b.model <- lmer(log10(abcd[,])~log10(Length ) + (1|is.land))
+    b <- coef(summary(b.model))[2,1]
+    b.vector.lmm <- c(b.vector.lmm, b)
+  }
+     
+    # trying to trouble shoot Error in model.frame.default(drop.unused.levels
+   # = TRUE, formula = log10(abcd[,  : variable lengths differ (found for 'is.land') 
+    
+     model.frame(lmer(log10(abcd[,])~log10(Length ) + (1|is.land)), 
+                data = h.d, subset = NULL, na.action = na.fail,
+                drop.unused.levels = FALSE, xlev = NULL)
+    
+    
+     
+  # size correct
+  xx <- dataframe.to.use  
+  columnnames <- colnames(xx)
+  i= 5
+  j=1
+  for (i in Traits.correct ) {
+    M0 <- xx[,i] #grab the column of the trait you are interested in  
+    Ms = M0 * ((Mean.L/L0)^b.vector.lmm[j]) #size correction formula
+    j=j+1
+    columnnames <- c(columnnames, paste(colnames(xx[i]), "sc", sep = "."))
+    xx <- cbind(xx, Ms)
+  }
+  colnames(xx) <- columnnames # Rename columns in the  dataframe xx
+  return(xx) #Output a new dataframe with the name provided in "outputfilename"
+}
+# end 
+
+
+# ============== Alternative size to size correction??  =======================
+
+# variables 
+p.tr <- c(5,6,7,8,9,10,11) #  position of each trait 
+h.trait <-  h.d[p.tr] 
+s.ex <- h.d$sex
+n.spp <- h.d$presence
+len.gth <- h.d$svl
+isle <- h.d$island
+
+#formula 
+
+alt.sc <- h.trait~s.ex+n.spp+len.gth+s.ex*n.spp+(1|isle)
+### dont think this works for ou purposes. 
+
+
+
+
 
 
 
