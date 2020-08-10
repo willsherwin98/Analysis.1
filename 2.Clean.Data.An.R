@@ -1,6 +1,6 @@
 
 
-#                   DATA CLEANING    #
+#                 DATA CLEANING    #
 
 #First, make a data frame including only the relevent colums and check 
 #that it worked using the head function 
