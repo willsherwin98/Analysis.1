@@ -2,7 +2,7 @@
 # Will Sherwin 
 # 24/04/2020 
 
-#1. This is code of a regresssion of head traits compared to size of Anole (SVL)
+#1. This is code of a regresssion of head traits compared to size of Anole 
 
 #2. This code correcting for size 
 
@@ -229,6 +229,12 @@ sc.t <- f.sizecorrect(df$svl, (5:11), df, df$island)
 
 
 #======================= Model selection =======================================
+#
+#
+
+
+# This section should be discarted and is no longer relavent to the analysis 
+
 
 ####################### variables 
 #jaw.l <- sc.t$Jaw.length.sc
@@ -251,6 +257,7 @@ var.names <- colnames(sc.t)[12:18]
 i <- 1
 for(i in 1:7){
   M1x <- aov(sc.t[,trait[i]]~pres+sex)
+  
   
   # M1.out <- capture.output(summary.lm(M1x)) #capture the output of the summary of model.3 . 
   
@@ -377,6 +384,5 @@ for(t in 1:7){ #create a for loop to for each trophic trait.
     }
   
 ##############       End loop for models 1-3       ##############
-
 
 

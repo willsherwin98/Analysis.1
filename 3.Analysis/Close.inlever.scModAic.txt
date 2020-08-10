@@ -1,1 +1,1 @@
-        df       AIC model.1  5 -154.6871 model.2  6 1023.3234 model.3  6 1023.3234
+        dAICc  df weight model.1    0.0 5  1      model.2 1178.1 6  <0.001 model.3 1178.1 6  <0.001
